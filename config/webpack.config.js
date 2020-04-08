@@ -51,6 +51,8 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
+const stylusRegex = /\.styl$/;
+const stylusModuleRegex = /\.module\.styl$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -511,6 +513,32 @@ module.exports = function (webpackEnv) {
                                     },
                                 },
                                 'less-loader'
+                            ),
+                        },
+                        // 支持styl配置
+                        {
+                            test: stylusRegex,
+                            exclude: stylusModuleRegex,
+                            use: getStyleLoaders(
+                                {
+                                    importLoaders: 2,
+                                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                                },
+                                'style-loader'
+                            ),
+                            sideEffects: true,
+                        },
+                        {
+                            test: stylusModuleRegex,
+                            use: getStyleLoaders(
+                                {
+                                    importLoaders: 2,
+                                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                                    modules: {
+                                        getLocalIdent: getCSSModuleLocalIdent,
+                                    },
+                                },
+                                'style-loader'
                             ),
                         },
                         // "file" loader makes sure those assets get served by WebpackDevServer.
