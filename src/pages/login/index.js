@@ -13,7 +13,7 @@ class Login extends Component {
     render() {
         return (
             <div className="P-login">
-                <Header/>
+                <Header param1={"def"} param2={"d"} func1={()=>{console.log('func2')}}/>
                 <h1>Login page</h1>
                 <button onClick={this.gotoHome.bind(this)}>跳转Home页</button>
             </div>

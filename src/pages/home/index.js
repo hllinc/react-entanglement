@@ -12,7 +12,7 @@ class Home extends Component {
     render() {
         return (
             <div className="P-home">
-                <Header/>
+                <Header param1={"adc"} param2={"c"} func1={()=>{console.log('func1')}}/>
                 <h1>Home page</h1>
             </div>
         )

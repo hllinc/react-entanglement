@@ -8,6 +8,7 @@ import './header.scss'
 
 class Header extends Component {
     render() {
+        console.log(this.props['param1']);
         return (
             <div className="M-header">
                 Header
