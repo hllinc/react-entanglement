@@ -150,5 +150,17 @@
     "node-sass": "^4.13.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
