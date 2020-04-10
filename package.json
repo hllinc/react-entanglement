@@ -159,9 +159,12 @@
     }
   },
   "lint-staged": {
-    "src/**": [
-      "prettier --config .prettierrc --write",
-      "eslint --fix",
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "src/**/*.{css,less,scss}": [
+      "prettier-stylelint --write",
       "git add"
     ]
   }
