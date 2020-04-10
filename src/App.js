@@ -1,17 +1,17 @@
 import React, {Fragment} from 'react';
 import {HashRouter, Redirect, Route, Switch} from 'react-router-dom';
 import Login from './pages/login';
-import Home from "./pages/home";
+import Home from './pages/home';
 
 function App() {
     return (
         <Fragment>
             <HashRouter>
                 <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/home" component={Home} />
-                    <Route exact path="/" component={Home} />
-                    <Redirect to={"/home"} />
+                    <Route path="/login" component={Login}/>
+                    <Route path="/home" component={Home}/>
+                    <Route exact path="/" component={Home}/>
+                    <Redirect to={'/home'}/>
                 </Switch>
             </HashRouter>
         </Fragment>
