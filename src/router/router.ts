@@ -23,6 +23,13 @@ export const routes = [
     name: 'home',
     title: 'HelloWorld'
   },
+  {
+    path: '/help',
+    exact: true,
+    component: loadable(() => import('@/pages/help/HelpPage')),
+    name: 'help',
+    title: 'Help'
+  },
   // 404 Not Found
   {
     path: '*',
