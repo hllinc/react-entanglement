@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const NoMatch = () => {
-  return <h1>404 NotFound</h1>
-}
+  return <h1>404 NotFound</h1>;
+};
 
-export default NoMatch
+export default NoMatch;
