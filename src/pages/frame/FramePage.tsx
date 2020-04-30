@@ -1,4 +1,5 @@
 import { Layout, Menu, Breadcrumb } from 'antd';
+import { createFromIconfontCN } from '@ant-design/icons';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import './FramePage.less';
@@ -9,10 +10,33 @@ import { Link } from 'react-router-dom';
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js'
+});
+
 class FramePage extends React.Component<routeProps> {
   constructor(props: routeProps) {
     super(props);
   }
+
+  // 动态生成菜单
+  generateMenus = routes => {
+    return routes.map(route => {
+      if (route.routes && route.routes.length > 0) {
+        return (
+          <SubMenu key={route.name} title={route.name} icon={route.icon ? <IconFont type={route.icon} /> : ''}>
+            {route.routes ? this.generateMenus(route.routes) : null}
+          </SubMenu>
+        );
+      } else {
+        return (
+          <Menu.Item key={route.name} icon={route.icon ? <IconFont type={route.icon} /> : ''}>
+            <Link to={route.path}>{route.name}</Link>
+          </Menu.Item>
+        );
+      }
+    });
+  };
 
   state = {
     current: 'sub1'
@@ -25,6 +49,7 @@ class FramePage extends React.Component<routeProps> {
   };
 
   render() {
+    const { routes } = this.props;
     return (
       <Layout style={{ height: '100vh' }}>
         <Header className="header">
@@ -43,28 +68,29 @@ class FramePage extends React.Component<routeProps> {
               selectedKeys={[location.pathname]}
               defaultOpenKeys={[this.state.current]}
               style={{ height: '100%', borderRight: 0 }}>
-              <SubMenu key="sub1" title="subnav 1">
-                <Menu.Item key="/frame/home" icon={<LaptopOutlined />}>
-                  <Link to="/frame/home">主页</Link>
-                </Menu.Item>
-                <Menu.Item key="/frame/help" icon={<UserOutlined />}>
-                  <Link to="/frame/help">帮助</Link>
-                </Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
-              </SubMenu>
-              <SubMenu key="sub2" title="subnav 2">
-                <Menu.Item key="5">option5</Menu.Item>
-                <Menu.Item key="6">option6</Menu.Item>
-                <Menu.Item key="7">option7</Menu.Item>
-                <Menu.Item key="8">option8</Menu.Item>
-              </SubMenu>
-              <SubMenu key="sub3" title="subnav 3">
-                <Menu.Item key="9">option9</Menu.Item>
-                <Menu.Item key="10">option10</Menu.Item>
-                <Menu.Item key="11">option11</Menu.Item>
-                <Menu.Item key="12">option12</Menu.Item>
-              </SubMenu>
+              {this.generateMenus(routes)}
+              {/*<SubMenu key="sub1" title="subnav 1">*/}
+              {/*  <Menu.Item key="/frame/home" icon={<LaptopOutlined/>}>*/}
+              {/*    <Link to="/frame/home">主页</Link>*/}
+              {/*  </Menu.Item>*/}
+              {/*  <Menu.Item key="/frame/help" icon={<UserOutlined/>}>*/}
+              {/*    <Link to="/frame/help">帮助</Link>*/}
+              {/*  </Menu.Item>*/}
+              {/*  <Menu.Item key="3">option3</Menu.Item>*/}
+              {/*  <Menu.Item key="4">option4</Menu.Item>*/}
+              {/*</SubMenu>*/}
+              {/*<SubMenu key="sub2" title="subnav 2">*/}
+              {/*  <Menu.Item key="5">option5</Menu.Item>*/}
+              {/*  <Menu.Item key="6">option6</Menu.Item>*/}
+              {/*  <Menu.Item key="7">option7</Menu.Item>*/}
+              {/*  <Menu.Item key="8">option8</Menu.Item>*/}
+              {/*</SubMenu>*/}
+              {/*<SubMenu key="sub3" title="subnav 3">*/}
+              {/*  <Menu.Item key="9">option9</Menu.Item>*/}
+              {/*  <Menu.Item key="10">option10</Menu.Item>*/}
+              {/*  <Menu.Item key="11">option11</Menu.Item>*/}
+              {/*  <Menu.Item key="12">option12</Menu.Item>*/}
+              {/*</SubMenu>*/}
             </Menu>
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>

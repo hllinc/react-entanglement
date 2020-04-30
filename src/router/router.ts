@@ -18,9 +18,21 @@ export const routes = [
         path: '/frame/home',
         exact: true,
         component: HomePage, // 组件需要你自己准备
-        name: 'home', // 自定义属性
+        name: '一级菜单', // 自定义属性
         title: 'react-home', // 自定义属性
-        auth: false
+        auth: false,
+        icon: 'icon-tuichu',
+        routes: [
+          {
+            path: '/frame/home',
+            exact: true,
+            component: HomePage, // 组件需要你自己准备
+            name: 'home', // 自定义属性
+            title: 'react-home', // 自定义属性
+            auth: false,
+            icon: 'icon-welcome'
+          }
+        ]
       },
       {
         path: '/frame/help',
