@@ -11,7 +11,7 @@ moment.locale('zh-cn');
 
 class App extends React.Component {
   state = {
-    date: moment()
+    date: null
   };
 
   handleChange = (date: any) => {
