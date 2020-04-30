@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import Logo from './react-logo.svg';
+import Logo from '../../../assets/images/react-logo.svg';
 import './HelloWorldDemoPage.less';
 
 const HelloWorldDemoPage: React.FC<RouteComponentProps> = (routeProps: RouteComponentProps) => {

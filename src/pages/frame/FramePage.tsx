@@ -7,7 +7,7 @@ import { routeProps } from '@/types/route';
 import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider, Footer } = Layout;
 
 class FramePage extends React.Component<routeProps> {
   constructor(props: routeProps) {
@@ -19,7 +19,6 @@ class FramePage extends React.Component<routeProps> {
   };
 
   handleClick = e => {
-    console.log('click ', e);
     this.setState({
       current: e.key
     });
@@ -27,9 +26,9 @@ class FramePage extends React.Component<routeProps> {
 
   render() {
     return (
-      <Layout>
+      <Layout style={{ height: '100vh' }}>
         <Header className="header">
-          <div className="logo" />
+          <div className="logo">REACT ENTANGLEMENT</div>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item key="1">nav 1</Menu.Item>
             <Menu.Item key="2">nav 2</Menu.Item>
@@ -77,12 +76,14 @@ class FramePage extends React.Component<routeProps> {
             <Content
               className="site-layout-background"
               style={{
-                padding: 24,
+                padding: 8,
                 margin: 0,
-                minHeight: 280
+                minHeight: 280,
+                overflow: 'auto'
               }}>
               {RenderRoutes(this.props.routes, false)}
             </Content>
+            <Footer style={{ textAlign: 'center' }}>Entanglement ©2020 Created by Hllinc</Footer>
           </Layout>
         </Layout>
       </Layout>
