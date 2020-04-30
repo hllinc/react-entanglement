@@ -1,4 +1,5 @@
 import { Layout, Menu, Breadcrumb } from 'antd';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import * as React from 'react';
 import './FramePage.less';
 import { RenderRoutes } from '@/router/RenderRoutes';
@@ -44,10 +45,10 @@ class FramePage extends React.Component<routeProps> {
               defaultOpenKeys={[this.state.current]}
               style={{ height: '100%', borderRight: 0 }}>
               <SubMenu key="sub1" title="subnav 1">
-                <Menu.Item key="/frame/home">
+                <Menu.Item key="/frame/home" icon={<LaptopOutlined />}>
                   <Link to="/frame/home">主页</Link>
                 </Menu.Item>
-                <Menu.Item key="/frame/help">
+                <Menu.Item key="/frame/help" icon={<UserOutlined />}>
                   <Link to="/frame/help">帮助</Link>
                 </Menu.Item>
                 <Menu.Item key="3">option3</Menu.Item>
