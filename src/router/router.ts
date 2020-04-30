@@ -5,31 +5,31 @@
  */
 import loadable from '@loadable/component'; // 按需加载
 import FramePage from '@/pages/frame/FramePage';
-
-export const basename = ''; // 如果访问路径有二级目录，则需要配置这个值，如首页地址为'http://tianzhen.tech/blog/home'，则这里配置为'/blog'
+import HomePage from '@/pages/home/HomePage';
 
 export const routes = [
   {
-    path: '/',
-    exact: true,
+    path: '/frame',
     component: FramePage,
     name: 'frame',
-    title: 'frame-page'
-  },
-  {
-    path: '/home',
-    exact: true,
-    component: loadable(() => import('@/pages/demo/HelloWorldDemo/HelloWorldDemoPage')), // 组件需要你自己准备
-    name: 'home', // 自定义属性
-    title: 'react-home' // 自定义属性
-    // 这里可以扩展一些自定义的属性
-  },
-  {
-    path: '/help',
-    exact: true,
-    component: loadable(() => import('@/pages/help/HelpPage')),
-    name: 'help',
-    title: 'Help'
+    title: 'frame-page',
+    routes: [
+      {
+        path: '/frame/home',
+        exact: true,
+        component: HomePage, // 组件需要你自己准备
+        name: 'home', // 自定义属性
+        title: 'react-home', // 自定义属性
+        auth: false
+      },
+      {
+        path: '/frame/help',
+        exact: true,
+        component: loadable(() => import('@/pages/help/HelpPage')), // 异步加载
+        name: 'help',
+        title: 'Help'
+      }
+    ]
   },
   // 404 Not Found
   {

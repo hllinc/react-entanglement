@@ -1,20 +1,30 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { ConfigProvider, DatePicker, message } from 'antd';
+// 由于 antd 组件的默认文案是英文，所以需要修改为中文
+import zhCN from 'antd/es/locale/zh_CN';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import './style.less';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { routes } from '@/router/router';
-import { RenderRoutes } from '@/router/RenderRoutes';
 import ScrollToTop from '@/components/Base/ScrollToTop';
+import { RenderRoutes } from '@/router/RenderRoutes';
+import { routes } from '@/router/router';
 
-// 是否具有权限，从状态管理或context中获取
+moment.locale('zh-cn');
 const authed = false;
-const authPath = '/login';
+const authPath = './login';
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <ScrollToTop />
-      {RenderRoutes(routes, authed, authPath)}
-    </Router>
-  );
-};
-
+class App extends React.Component {
+  render() {
+    return (
+      <ConfigProvider locale={zhCN}>
+        <Router>
+          <ScrollToTop />
+          {RenderRoutes(routes, authed, authPath)}
+        </Router>
+      </ConfigProvider>
+    );
+  }
+}
 export default App;

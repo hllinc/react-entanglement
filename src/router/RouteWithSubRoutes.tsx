@@ -10,7 +10,7 @@ export const RouteWithSubRoutes = (route: RouteInterface, i: number, authed: boo
       exact={route.exact}
       render={(props: RouteComponentProps) => {
         if (!route.auth || authed || route.path === authPath) {
-          console.log('Route with sub routes.');
+          console.log('ok');
           // pass the sub-routes down to keep nesting
           return <route.component {...props} routes={route.routes} />;
         }
