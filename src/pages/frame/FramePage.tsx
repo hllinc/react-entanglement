@@ -3,6 +3,7 @@ import * as React from 'react';
 import './FramePage.less';
 import { RenderRoutes } from '@/router/RenderRoutes';
 import { routeProps } from '@/types/route';
+import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -39,15 +40,15 @@ class FramePage extends React.Component<routeProps> {
             <Menu
               mode="inline"
               onClick={this.handleClick}
-              defaultSelectedKeys={[this.state.current]}
-              defaultOpenKeys={['sub1']}
+              selectedKeys={[this.state.current]}
+              defaultOpenKeys={[this.state.current]}
               style={{ height: '100%', borderRight: 0 }}>
               <SubMenu key="sub1" title="subnav 1">
                 <Menu.Item key="1">
-                  <a href="/frame/home">主页</a>
+                  <Link to="/frame/home">主页</Link>
                 </Menu.Item>
                 <Menu.Item key="2">
-                  <a href="/frame/help">帮助</a>
+                  <Link to="/frame/help">帮助</Link>
                 </Menu.Item>
                 <Menu.Item key="3">option3</Menu.Item>
                 <Menu.Item key="4">option4</Menu.Item>
