@@ -40,14 +40,14 @@ class FramePage extends React.Component<routeProps> {
             <Menu
               mode="inline"
               onClick={this.handleClick}
-              selectedKeys={[this.state.current]}
+              selectedKeys={[location.pathname]}
               defaultOpenKeys={[this.state.current]}
               style={{ height: '100%', borderRight: 0 }}>
               <SubMenu key="sub1" title="subnav 1">
-                <Menu.Item key="1">
+                <Menu.Item key="/frame/home">
                   <Link to="/frame/home">主页</Link>
                 </Menu.Item>
-                <Menu.Item key="2">
+                <Menu.Item key="/frame/help">
                   <Link to="/frame/help">帮助</Link>
                 </Menu.Item>
                 <Menu.Item key="3">option3</Menu.Item>

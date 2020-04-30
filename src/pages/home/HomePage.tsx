@@ -2,9 +2,10 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import './HomePage.less';
 
-const HomePage: React.FC<RouteComponentProps> = (routeProps: RouteComponentProps) => {
-  console.log(routeProps);
-  return <div>这是首页</div>;
-};
+class HomePage extends React.Component<RouteComponentProps> {
+  render() {
+    return <div>这是首页</div>;
+  }
+}
 
 export default HomePage;
