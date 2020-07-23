@@ -68,17 +68,17 @@ class FramePage extends React.Component<routeProps> {
               selectedKeys={[location.pathname]}
               defaultOpenKeys={[this.state.current]}
               style={{ height: '100%', borderRight: 0 }}>
-              {/*{this.generateMenus(routes)}*/}
-              <SubMenu key="sub1" title="subnav 1">
-                <Menu.Item key="/frame/home" icon={<LaptopOutlined />}>
-                  <Link to="/frame/home">主页</Link>
-                </Menu.Item>
-                <Menu.Item key="/frame/help" icon={<UserOutlined />}>
-                  <Link to="/frame/help">帮助</Link>
-                </Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
-              </SubMenu>
+              {this.generateMenus(routes)}
+              {/*<SubMenu key="sub1" title="subnav 1">*/}
+              {/*  <Menu.Item key="/frame/home" icon={<LaptopOutlined />}>*/}
+              {/*    <Link to="/frame/home">主页</Link>*/}
+              {/*  </Menu.Item>*/}
+              {/*  <Menu.Item key="/frame/help" icon={<UserOutlined />}>*/}
+              {/*    <Link to="/frame/help">帮助</Link>*/}
+              {/*  </Menu.Item>*/}
+              {/*  <Menu.Item key="3">option3</Menu.Item>*/}
+              {/*  <Menu.Item key="4">option4</Menu.Item>*/}
+              {/*</SubMenu>*/}
               {/*<SubMenu key="sub2" title="subnav 2">*/}
               {/*  <Menu.Item key="5">option5</Menu.Item>*/}
               {/*  <Menu.Item key="6">option6</Menu.Item>*/}
