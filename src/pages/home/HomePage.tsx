@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import './HomePage.less';
-import { IHomeStore } from '@/store/homeStore';
-import { IHelpStore } from '@/store/helpStore';
 
-interface IHomeProps {
-  homeStore?: IHomeStore;
-  helpStore?: IHelpStore;
-}
-
-@inject('homeStore', 'helpStore')
+@inject('store')
 @observer
-class HomePage extends Component<IHomeProps> {
+class HomePage extends Component<IProps> {
   private data: any = [];
 
   constructor(props) {
@@ -24,8 +17,8 @@ class HomePage extends Component<IHomeProps> {
   }
 
   render() {
-    console.log(this.props.homeStore.homeNum);
-    console.log(this.props.helpStore.oneNum);
+    console.log(this.props.store.homeStore.homeNum);
+    console.log(this.props.store.helpStore.test);
     return this.data.map((v, index) => <div key={index}>{v.name}</div>);
   }
 }

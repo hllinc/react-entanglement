@@ -1,9 +1,4 @@
-import { HomeStore } from '@/store/homeStore';
-import { HelpStore } from '@/store/helpStore';
+export { default } from './root.store';
+export * from './root.store';
 
-const stores = {
-  homeStore: new HomeStore(),
-  helpStore: new HelpStore()
-};
-/// 默认导出接口
-export default stores;
+// export { default as IHomeStore } from '@/store/home.store';

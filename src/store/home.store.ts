@@ -3,10 +3,7 @@
  */
 import { observable } from 'mobx';
 
-export interface IHomeStore {
-  homeNum: number;
-}
-
-export class HomeStore implements IHomeStore {
+class HomeStore {
   @observable homeNum = 100;
 }
+export default HomeStore;

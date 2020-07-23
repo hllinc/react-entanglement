@@ -10,7 +10,8 @@ import ScrollToTop from '@/components/Base/ScrollToTop';
 import { RenderRoutes } from '@/router/RenderRoutes';
 import { routes } from '@/router/router';
 import { Provider } from 'mobx-react';
-import stores from '@/store';
+import RootStore from '@/store';
+const rootStore = new RootStore();
 
 moment.locale('zh-cn');
 const authed = false;
@@ -19,8 +20,8 @@ const authPath = './login';
 class App extends React.Component {
   render() {
     return (
-      <ConfigProvider locale={zhCN}>
-        <Provider {...stores}>
+      <ConfigProvider>
+        <Provider store={rootStore}>
           <Router>
             <ScrollToTop />
             {RenderRoutes(routes, authed, authPath)}
