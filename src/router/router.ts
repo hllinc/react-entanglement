@@ -6,8 +6,13 @@
 import loadable from '@loadable/component'; // 按需加载
 import FramePage from '@/pages/frame/FramePage';
 import HomePage from '@/pages/home/HomePage';
+import HelloWorldDemoPage from '@/pages/demo/HelloWorldDemo/HelloWorldDemoPage';
 
 export const routes = [
+  {
+    path: '/login',
+    component: HelloWorldDemoPage
+  },
   {
     path: '/frame',
     component: FramePage,
@@ -16,7 +21,7 @@ export const routes = [
     routes: [
       {
         path: '/frame/home',
-        exact: true,
+        exact: false,
         component: HomePage, // 组件需要你自己准备
         name: '一级菜单', // 自定义属性
         title: 'react-home', // 自定义属性
